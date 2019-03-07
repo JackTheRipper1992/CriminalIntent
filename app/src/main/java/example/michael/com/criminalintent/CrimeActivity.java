@@ -11,22 +11,16 @@ import java.util.UUID;
 
 public class CrimeActivity extends SingleFragmentActivity {
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//    }
-    public static final String EXTRA_CRIME_ID = "example.michael.com.criminalintent.crime_id";
+    private static final String EXTRA_CRIME_ID = "example.michael.com.criminalintent.crime_id";
 
     @Override
     protected Fragment createFragment() {
-        return new CrimeFragment();
+        return CrimeFragment.newInstance((UUID)getIntent().getSerializableExtra(EXTRA_CRIME_ID));
     }
 
-    public static Intent newIntent(Context packageContent, UUID id){
-        Intent intent = new Intent();
-        intent.setClass(packageContent,CrimeActivity.class);
-        intent.putExtra(EXTRA_CRIME_ID,id);
+    public static Intent newIntent(Context packageContent, UUID CrimeId){
+        Intent intent = new Intent(packageContent,CrimeActivity.class);
+        intent.putExtra(EXTRA_CRIME_ID,CrimeId);
         return intent;
     }
 }

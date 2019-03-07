@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class CrimeLab {
+
     private static volatile CrimeLab sCrimeLab;
     private List<Crime> mCrimes;
 
